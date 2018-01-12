@@ -11,6 +11,7 @@ The main difference between ASP.NET Core 1.0 and Core 2.0 is that the AspNetCore
 /api/trips/{id} - Only the passed in Trip Id.
 /api/trips/{tripId}/pointsofinterest - All PointsOfInterest for the passed in Trip Id.
 /api/trips/{tripId}/pointsofinterest/{id} - Only the passed in Trip Id and PointsOfInterest Id.
+/api/trips/throwexception - Simply for the purpose of testing Nlog.Extensions.Logging features.
 ```
 ## POST - Create a new PointOfInterest for a trip
 ```
