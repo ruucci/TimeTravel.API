@@ -23,4 +23,3 @@ namespace TimeTravel.API
                 .Build();
     }
 }
-    
