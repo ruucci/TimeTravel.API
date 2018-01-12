@@ -9,5 +9,14 @@ The main difference between ASP.NET Core 1.0 and Core 2.0 is that the AspNetCore
 1. /api/trips - All trips.
 2. /api/trips/{id} - Only the passed in Trip Id.
 3. /api/trips/{tripId}/pointsofinterest - All PointsOfInterest for the passed in Trip Id.
-4. /api/{tripId}/pointsofinterest/{id} - Only the passed in Trip Id and PointsOfInterest Id.
-## POST
+4. /api/trips/{tripId}/pointsofinterest/{id} - Only the passed in Trip Id and PointsOfInterest Id.
+## POST - Create a new PointOfInterest for a trip
+1. /api/trips/{tripId}/pointsofinterest
+## PUT - Fully Updated the PointOfInterest for a trip
+1. /api/trips/{tripId}/pointsofinterest/{id}
+## PATCH - Partially Updated the PointOfInterest for a trip
+1. /api/trips/{tripId}/pointsofinterest/{id}
+## DELETE - Delete the mentioned PointOfInterest
+1. /api/trips/{tripId}/pointsofinterest/{id}
+### References
+app.pluralsight.com
