@@ -90,16 +90,5 @@ namespace TimeTravel.API
             //    await context.Response.WriteAsync("Hello World!");
             //});
         }
-
-        private async Task SendEmail(string email, string subject, string htmlContent)
-        {
-            var apiKey = "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";
-            var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("support@timetravel-api.azurewebsites.net", "Support");
-            var to = new EmailAddress(email);
-            var plainTextContent = Regex.Replace(htmlContent, "<[^>]*>", "");
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
-        }
     }
 }

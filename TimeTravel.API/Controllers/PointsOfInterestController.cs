@@ -275,7 +275,7 @@ namespace TimeTravel.API.Controllers
             catch (Exception ex)
             {
                 _logger.LogCritical($"Exception while getting points of interest for trip with Id {tripId} and pointsOfInterest Id {id}.", ex);
-                return StatusCode(500, "A problem occured while handling your request.");
+                return StatusCode(500, ex);
             }
 
         }
