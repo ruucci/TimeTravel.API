@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TimeTravel.API.Models;
+using TimeTravel.API.Services;
 
 namespace TimeTravel.API.Controllers
 {
@@ -11,10 +12,12 @@ namespace TimeTravel.API.Controllers
     public class PointsOfInterestController : Controller
     {
         private ILogger<PointsOfInterestController> _logger;
+        private IMailService _mailService;
 
-        public PointsOfInterestController(ILogger<PointsOfInterestController> logger)
+        public PointsOfInterestController(ILogger<PointsOfInterestController> logger, IMailService mailService)
         {
             _logger = logger;
+            _mailService = mailService;
         }
 
         [HttpGet("{tripId}/pointsofinterest")]
@@ -263,6 +266,8 @@ namespace TimeTravel.API.Controllers
                 }
 
                 trip.PointsOfInterest.Remove(pointOfInterestFromStore);
+
+                _mailService.Send("Point of Interest has been deleted.", $"Point of Interest {pointOfInterestFromStore.Name} with id {pointOfInterestFromStore.Id} was deleted");
 
                 return NoContent();
             }
