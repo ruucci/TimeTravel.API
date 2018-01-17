@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +16,14 @@ namespace TimeTravel.API
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
+
+            //try{
+            //    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            //    builder.DataSource = "localhost";   // update me
+            //    builder.UserID = "sa";              // update me
+            //    builder.Password = "Mongo#1990";      // update me
+            //    builder.InitialCatalog = "TestDB"; 
+            //}
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

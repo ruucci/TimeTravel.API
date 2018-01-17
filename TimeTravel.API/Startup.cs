@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -14,14 +15,17 @@ using Newtonsoft.Json.Serialization;
 using NLog.Extensions.Logging;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using TimeTravel.API.Entities;
 using TimeTravel.API.Services;
 
 namespace TimeTravel.API
 {
     public class Startup
     {       
-        //Code for Asp.NET Core 2.0
+        //Code for Asp.NET Core 2.0 
+        //for reading from the config file
         public static IConfiguration Configuration { get; private set; }
+
 
         public Startup(IConfiguration configuration)
         {
@@ -62,6 +66,8 @@ namespace TimeTravel.API
 #else
             services.AddTransient<IMailService, CloudMailService>();
 #endif
+            var connectionString = @"XXX";
+            services.AddDbContext<TripInfoContext>(o => o.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
