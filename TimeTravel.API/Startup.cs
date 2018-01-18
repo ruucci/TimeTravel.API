@@ -99,8 +99,13 @@ namespace TimeTravel.API
                 cfg.CreateMap<Entities.Trip, Models.TripWithoutPointsOfInterestDto>();
                 cfg.CreateMap<Entities.Trip, Models.TripDto>();
                 cfg.CreateMap<Entities.PointsOfInterest, Models.PointsOfInterestDto>();
+
                 cfg.CreateMap<Models.PointsOfInterestCreatorDto, Entities.PointsOfInterest>();
+                cfg.CreateMap<Models.TripWithPointsOfInterestCreatorDto, Entities.Trip>();
+
                 cfg.CreateMap<Models.PointsOfInterestUpdaterDto, Entities.PointsOfInterest>();
+                cfg.CreateMap<Models.TripUpdaterDto, Entities.Trip>();
+
                 cfg.CreateMap<Entities.PointsOfInterest, Models.PointsOfInterestUpdaterDto>();
 
             });

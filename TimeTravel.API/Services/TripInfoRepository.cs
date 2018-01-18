@@ -21,6 +21,12 @@ namespace TimeTravel.API.Services
             trip.PointsOfInterest.Add(pointOfInterest);
         }
 
+        public void AddTrip(Trip trip)
+        {
+            _context.Trips.Add(trip);
+        }
+
+
         public bool TripExists(int tripId)
         {
             return _context.Trips.Any(t => t.Id == tripId);

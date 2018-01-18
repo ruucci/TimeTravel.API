@@ -12,6 +12,7 @@ namespace TimeTravel.API.Services
         IEnumerable<PointsOfInterest> GetPointsOfInterestForTrip(int tripId);
         PointsOfInterest GetPointOfInterestForTrip(int tripId, int pointOfInterestId);
         void AddPointOfInterestForTrip(int tripId, PointsOfInterest pointOfInterest);
+        void AddTrip(Trip trip);
         bool Save();
         void DeletePointOfInterest(PointsOfInterest pointOfInterest);
     }

@@ -152,26 +152,6 @@ namespace TimeTravel.API.Controllers
 
                 return CreatedAtRoute("GetPointOfInterest", new { tripId = tripId , id = createdPointOfInterestToReturn.Id }, createdPointOfInterestToReturn);
 
-                //WITHOUT AutoMapper
-                //var trip = TripsDataStore.Current.Trips.FirstOrDefault(t => t.Id == tripId);
-
-                //if (trip == null)
-                //{
-                //    return NotFound();
-                //}
-
-                //var maxPointOfInterestId = TripsDataStore.Current.Trips.SelectMany(
-                //    t => trip.PointsOfInterest).Max(p => p.Id);
-
-                //var finalPointOfInterest = new PointsOfInterestDto()
-                //{
-                //    Id = ++maxPointOfInterestId,
-                //    Name = pointOfInterest.Name,
-                //    Description = pointOfInterest.Description
-                //};
-                //trip.PointsOfInterest.Add(finalPointOfInterest);
-
-
             }
             catch (Exception ex)
             {
@@ -223,22 +203,6 @@ namespace TimeTravel.API.Controllers
                 }
 
                 return NoContent();
-
-
-                //WITHOUT AutoMapper
-                //var trip = TripsDataStore.Current.Trips.FirstOrDefault(t => t.Id == tripId);
-                //if (trip == null)
-                //{
-                //    return NotFound();
-                //}
-
-                //var pointOfInterestFromStore = trip.PointsOfInterest.FirstOrDefault((p => p.Id == id));
-                //if (pointOfInterestFromStore == null)
-                //{
-                //    return NotFound();
-                //}
-                //pointOfInterestFromStore.Name = pointOfInterest.Name;
-                //pointOfInterestFromStore.Description = pointOfInterest.Description;
 
             }
             catch (Exception ex)
@@ -303,29 +267,6 @@ namespace TimeTravel.API.Controllers
 
                 return NoContent();
 
-                //WITHOUT AutoMapper
-                //var trip = TripsDataStore.Current.Trips.FirstOrDefault(t => t.Id == tripId);
-                //if (trip == null)
-                //{
-                //    return NotFound();
-                //}
-
-                //var pointOfInterestFromStore = trip.PointsOfInterest.FirstOrDefault((p => p.Id == id));
-                //if (pointOfInterestFromStore == null)
-                //{
-                //    return NotFound();
-                //}
-
-                //var pointOfInterestToPatch =
-                    //new PointsOfInterestUpdaterDto()
-                    //{
-                    //    Name = pointOfInterestFromStore.Name,
-                    //    Description = pointOfInterestFromStore.Description
-                    //};
-
-                //pointOfInterestFromStore.Name = pointOfInterestToPatch.Name;
-                //pointOfInterestFromStore.Description = pointOfInterestToPatch.Description;
-
             }
 
             catch (Exception ex)
@@ -361,21 +302,6 @@ namespace TimeTravel.API.Controllers
                 _mailService.Send("Point of Interest has been deleted.", $"Point of Interest {pointOfInterestEntity.Name} with id {pointOfInterestEntity.Id} was deleted");
 
                 return NoContent();
-
-                //WITHOUT AutoMapper
-                //var trip = TripsDataStore.Current.Trips.FirstOrDefault(t => t.Id == tripId);
-                //if (trip == null)
-                //{
-                //    return NotFound();
-                //}
-
-                //var pointOfInterestFromStore = trip.PointsOfInterest.FirstOrDefault((p => p.Id == id));
-                //if (pointOfInterestFromStore == null)
-                //{
-                //    return NotFound();
-                //}
-
-                //trip.PointsOfInterest.Remove(pointOfInterestFromStore);
 
             }
 
