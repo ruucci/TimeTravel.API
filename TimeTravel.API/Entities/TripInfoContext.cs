@@ -9,7 +9,7 @@ namespace TimeTravel.API.Entities
         public TripInfoContext(DbContextOptions<TripInfoContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
         public DbSet<Trip> Trips { get; set; }
 

@@ -66,12 +66,15 @@ namespace TimeTravel.API
 #else
             services.AddTransient<IMailService, CloudMailService>();
 #endif
-            var connectionString = @"XXX";
+            var connectionString = Startup.Configuration["connectionStrings:tripInfoDBConnectionString"];
             services.AddDbContext<TripInfoContext>(o => o.UseSqlServer(connectionString));
+
+            services.AddScoped<ITripInfoRepository, TripInfoRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, TripInfoContext tripInfoContext)
         {
             loggerFactory.AddConsole();
             loggerFactory.AddDebug();
@@ -87,7 +90,20 @@ namespace TimeTravel.API
                 app.UseExceptionHandler();
             }
 
+            tripInfoContext.EnsureSeedDataForContext();
+
             app.UseStatusCodePages(); 
+
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Entities.Trip, Models.TripWithoutPointsOfInterestDto>();
+                cfg.CreateMap<Entities.Trip, Models.TripDto>();
+                cfg.CreateMap<Entities.PointsOfInterest, Models.PointsOfInterestDto>();
+                cfg.CreateMap<Models.PointsOfInterestCreatorDto, Entities.PointsOfInterest>();
+                cfg.CreateMap<Models.PointsOfInterestUpdaterDto, Entities.PointsOfInterest>();
+                cfg.CreateMap<Entities.PointsOfInterest, Models.PointsOfInterestUpdaterDto>();
+
+            });
 
             app.UseMvc();
 
