@@ -15,14 +15,17 @@ The main difference between ASP.NET Core 1.0 and Core 2.0 is that the AspNetCore
 ```
 ## POST - Create a new PointOfInterest for a trip
 ```
+/api/trips
 /api/trips/{tripId}/pointsofinterest
 ```
 ## PUT - Fully Update the PointOfInterest for a trip
 ```
+/api/trips/{tripId}
 /api/trips/{tripId}/pointsofinterest/{id}
 ```
 ## PATCH - Partially Update the PointOfInterest for a trip
 ```
+/api/trips/{tripId}
 /api/trips/{tripId}/pointsofinterest/{id}
 ```
 ## DELETE - Delete the PointOfInterest for a trip
