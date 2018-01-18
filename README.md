@@ -1,5 +1,5 @@
 # TimeTravel.API
-Learning to develop a simple ASP.NET Core 2.0 API with simple operations to support my Angular 5 project's backend.
+Learning to develop a simple ASP.NET Core 2.0, Entity Framework Core API  with simple operations to support my Angular 5 project's backend.
 ## Notes
 The main difference between ASP.NET Core 1.0 and Core 2.0 is that the AspNetCore.Mvc.All package is:
 1. Not referenced in the Core 1.0 framework, you need to import every package as required, but these will be available on the runtime store on publish.
